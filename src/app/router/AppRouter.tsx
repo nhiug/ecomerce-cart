@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom"
+import { Route, Routes, Navigate } from "react-router-dom"
 import ProductListPage from "../../features/products/pages/ProductListPage"
 import ProductDetailPage from "../../features/products/pages/ProductDetailPage"
 
@@ -6,12 +6,29 @@ function AppRouter() {
   return (
     <Routes>
 
-      {/* redirect root to products */}
-      <Route path="/" element={<Navigate to="/products" replace />} />
+      {/* homepage */}
+      <Route
+        path="/"
+        element={<ProductListPage />}
+      />
 
-      <Route path="/products" element={<ProductListPage />} />
+      {/* products page */}
+      <Route
+        path="/products"
+        element={<ProductListPage />}
+      />
 
-      <Route path="/product/:id" element={<ProductDetailPage />} />
+      {/* product detail */}
+      <Route
+        path="/product/:id"
+        element={<ProductDetailPage />}
+      />
+
+      {/* fallback */}
+      <Route
+        path="*"
+        element={<Navigate to="/" replace />}
+      />
 
     </Routes>
   )
