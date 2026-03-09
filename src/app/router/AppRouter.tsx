@@ -6,19 +6,17 @@ function AppRouter() {
   return (
     <Routes>
 
-      {/* homepage */}
+      {/* redirect root to products */}
       <Route
         path="/"
-        element={<ProductListPage />}
+        element={<Navigate to="/products" replace />}
       />
 
-      {/* products page */}
       <Route
         path="/products"
         element={<ProductListPage />}
       />
 
-      {/* product detail */}
       <Route
         path="/product/:id"
         element={<ProductDetailPage />}
@@ -27,7 +25,7 @@ function AppRouter() {
       {/* fallback */}
       <Route
         path="*"
-        element={<Navigate to="/" replace />}
+        element={<Navigate to="/products" replace />}
       />
 
     </Routes>
